@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from './views/Home.vue'
-
+import Router1 from './components/router1.vue'
+import TreeNode from './components/treenode.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -20,6 +21,14 @@ export default new Router({
       // this generates a separate chunk (about.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
       component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+    },{
+      path: '/router1',
+      name: 'router1',
+      component:Router1
+    },{
+      path: '/treenode',
+      name: 'treenode',
+      component:TreeNode
     }
   ]
 })

@@ -1,25 +1,28 @@
 <template>
   <div id="app">
+    <!-- <loading></loading> -->
     <div id="nav">
       <router-link to="/">Home</router-link>|
-      <router-link to="/about">About</router-link>
+      <router-link to="/about">About</router-link>|
+      <router-link :to="{ path: '/router1', query: { id: 123 }}" >router1</router-link>
+      <router-link to='/treenode'>treenode</router-link>
     </div>
+    <button @click='h'>点击</button>
     <router-view/>
   </div>
 </template>
 
 <script>
 import axios from "axios";
+import Loading from './components/loading'
 export default {
-  created() {
-    axios.get("api")
-      .then(function(response) {
-        // response.data中获取ResponseData实体
-        console.log(response)
-      })
-      .catch(function(error) {
-        // 发生错误
-      });
+  methods:{
+    h(){
+      this.$router.push({path: '/router1',query:{id:1,h:2}})
+    }
+  },
+  components:{
+    Loading
   }
 };
 </script>
