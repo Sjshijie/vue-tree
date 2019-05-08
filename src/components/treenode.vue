@@ -41,9 +41,7 @@ export default {
             this.node = node.data.id
         }
         
-        this.getTree(resolve)
-        
-        
+        this.getTree(resolve) 
     }
   }
 };
